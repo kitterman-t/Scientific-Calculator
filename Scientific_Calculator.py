@@ -438,12 +438,6 @@ def calculate(expr_string, source="user_input"):
             "error": error_msg
         })
         return error_msg, True  # Return the error message and a flag indicating an error occurred
-    
-def custom_round(x, precision):
-    """Rounds x to the nearest multiple of 10^-precision."""
-    multiplier = mp.power(10, precision)  # Calculate the multiplier for rounding
-    rounded_x = mp.nint(x * multiplier) / multiplier  # Round to nearest integer and adjust back
-    return rounded_x  # Return the rounded value
 
 def format_result(result, precision=None):
     """
@@ -613,12 +607,6 @@ def setup_test_cases():
     """
 
     # --- Helper Functions for Test Cases ---
-
-    def precision_test(precision):
-        """Test the precision of the calculator."""
-        mp.dps = precision
-        result = mp.fdiv(1, 3, prec=precision)  # Calculate 1/3 with the specified precision
-        return result  # Return the raw result without manual rounding
 
     def high_order_root(precision):
         """Test calculation of a high-order root."""
